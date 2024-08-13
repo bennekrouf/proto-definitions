@@ -4,15 +4,15 @@ syntax = "proto3";
 package log;
 
 service LogService {
-    rpc StreamLogs (LogRequest) returns (stream LogReply);
+    rpc StreamLogs(LogRequest) returns (stream LogReply);
+    rpc SendLog(LogRequest) returns (LogReply); // New RPC method
 }
 
 message LogRequest {
-    string filter = 1;
+    string log_message = 1;
 }
 
 message LogReply {
     string log_message = 1;
 }
-
 
