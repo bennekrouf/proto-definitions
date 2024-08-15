@@ -1,0 +1,24 @@
+
+syntax = "proto3";
+
+package messenger;
+
+service MessengerService {
+    rpc ListenMessages(MessageFilter) returns (stream MessageReply);
+    rpc SendMessage(MessageRequest) returns (MessageReply);
+}
+
+message MessageRequest {
+    string message_text = 1;
+    repeated string tags = 2; // List of tags for multiple tags
+}
+
+message MessageReply {
+    string message_text = 1;
+    repeated string tags = 2; // Include multiple tags in the reply
+}
+
+message MessageFilter {
+    repeated string tags = 1; // Filter messages based on a list of tags
+}
+
