@@ -4,8 +4,8 @@ syntax = "proto3";
 package messenger;
 
 service MessengerService {
-    rpc ListenMessages(MessageFilter) returns (stream MessageReply);
-    rpc SendMessage(MessageRequest) returns (MessageReply);
+    rpc SubscribeMessages(MessageFilter) returns (stream MessageReply); // Renamed method
+    rpc PublishMessage(MessageRequest) returns (MessageReply); // Renamed method
 }
 
 message MessageRequest {
