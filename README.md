@@ -17,7 +17,7 @@ To include this repository in your project as a submodule, follow these steps:
 
    ```bash
    git submodule add git@192.95.30.129:backend/proto-definitions.git
-
+   ```
 
 2. Initialize and Update the Submodule:
 
@@ -26,7 +26,7 @@ After adding the submodule, you need to initialize and fetch its contents:
 ```bash
     git submodule init
     git submodule update
-
+   ```
 
 ### Updating the Proto Files
 
@@ -39,7 +39,7 @@ Proto files in this repository may be updated over time. To ensure your project 
 
 ```bash
 git submodule update --remote
-
+   ```
 
 2. Commit the Changes:
 
@@ -49,7 +49,7 @@ After updating the submodule, ensure you commit the changes to your project’s 
 ```bash
 git add proto-definitions
 git commit -m "Updated proto definitions to the latest version"
-
+   ```
 
 ## Usage
 
@@ -62,7 +62,7 @@ To generate code from the proto files, you can typically run a command like the 
 
 ```bash
 protoc --proto_path=proto-definitions --<language_out>=<output_directory> proto-definitions/**/*.proto
-
+   ```
 
 Replace <language_out> and <output_directory> with your specific target language and desired output directory.
 
