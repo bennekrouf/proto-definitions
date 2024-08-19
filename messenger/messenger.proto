@@ -1,24 +1,37 @@
 
+
 syntax = "proto3";
 
 package messenger;
 
 service MessengerService {
-    rpc SubscribeMessages(MessageFilter) returns (stream MessageReply); // Renamed method
-    rpc PublishMessage(MessageRequest) returns (MessageReply); // Renamed method
+    rpc SubscribeMessagesByTags(MessageTagFilter) returns (stream MessageReply); // Subscribe by tags
+    rpc SubscribeMessagesByLocation(MessageLocationFilter) returns (stream MessageReply); // Subscribe by GPS location
+    rpc PublishMessage(MessageRequest) returns (MessageReply); // Publish message
 }
 
 message MessageRequest {
     string message_text = 1;
-    repeated string tags = 2; // List of tags for multiple tags
+    repeated string tags = 2; // List of tags
+    GPSCoordinates gps_coordinates = 3; // GPS coordinates (optional)
 }
 
 message MessageReply {
     string message_text = 1;
-    repeated string tags = 2; // Include multiple tags in the reply
+    repeated string tags = 2; // List of tags
+    GPSCoordinates gps_coordinates = 3; // GPS coordinates (if applicable)
 }
 
-message MessageFilter {
+message MessageTagFilter {
     repeated string tags = 1; // Filter messages based on a list of tags
+}
+
+message MessageLocationFilter {
+    GPSCoordinates location = 1; // Filter messages based on GPS coordinates
+}
+
+message GPSCoordinates {
+    double latitude = 1;
+    double longitude = 2;
 }
 

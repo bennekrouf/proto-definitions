@@ -41,6 +41,14 @@ Proto files in this repository may be updated over time. To ensure your project 
 git submodule update --remote
 
 
+
+If not working force with :
+
+
+rm -Rf cached proto-definitions
+git rm --cache proto-definitions
+git submodule add git@192.95.30.129:backend/proto-definitions.git
+
 2. Commit the Changes:
 
 After updating the submodule, ensure you commit the changes to your project’s repository:
