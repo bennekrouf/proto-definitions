@@ -1,0 +1,25 @@
+
+syntax = "proto3";
+
+package minioc;
+
+// FileChunk represents a chunk of the file being uploaded
+message FileChunk {
+  bytes data = 1; // The actual chunk of the file
+}
+
+// UploadRequest contains metadata for the file upload
+message UploadRequest {
+  string tenant = 1;  // The tenant will determine the bucket name
+  string filename = 2; // The name of the file to be uploaded
+}
+
+// UploadResponse represents the response from the server
+message UploadResponse {
+  string message = 1;
+}
+
+// Minioc service definition
+service MiniocService {
+  rpc streamUpload (stream FileChunk) returns (UploadResponse);
+}
