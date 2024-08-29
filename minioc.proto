@@ -19,7 +19,14 @@ message UploadResponse {
   string message = 1;
 }
 
+// DownloadRequest contains the tenant and filename for downloading
+message DownloadRequest {
+  string tenant = 1;  // The tenant will determine the bucket name
+  string filename = 2; // The name of the file to be downloaded
+}
+
 // Minioc service definition
 service MiniocService {
   rpc streamUpload (stream FileChunk) returns (UploadResponse);
+  rpc downloadFile (DownloadRequest) returns (stream FileChunk);
 }
