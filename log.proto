@@ -1,0 +1,22 @@
+
+syntax = "proto3";
+
+package logservice;
+
+message LogEntry {
+  string datetime = 1;
+  string tenant_name = 2;
+  string item_id = 3;
+  string status = 4;
+  double qty = 5;
+  map<string, string> metadata = 6;
+}
+
+message UploadResponse {
+  string message = 1;
+}
+
+service LogService {
+  rpc StreamLogs (stream LogEntry) returns (UploadResponse);
+}
+
