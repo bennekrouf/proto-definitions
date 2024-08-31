@@ -1,0 +1,18 @@
+
+syntax = "proto3";
+
+package codeg;
+
+service CodeGenerator {
+    rpc GenerateFiles(GenerateFilesRequest) returns (GenerateFilesResponse);
+}
+
+message GenerateFilesRequest {
+    // Additional fields for the request can be added here if needed.
+    // For example, a path to the configuration folder, or other parameters.
+}
+
+message GenerateFilesResponse {
+    string message = 1;
+    bool success = 2;
+}
