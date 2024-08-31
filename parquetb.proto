@@ -1,7 +1,7 @@
 
 syntax = "proto3";
 
-package log;
+package parquetb;
 
 message LogEntry {
   string datetime = 1;
@@ -16,7 +16,7 @@ message UploadResponse {
   string message = 1;
 }
 
-service LogService {
+service ParquetbService {
   rpc StreamLogs (stream LogEntry) returns (UploadResponse);
 }
 
