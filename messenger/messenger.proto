@@ -12,13 +12,13 @@ service MessengerService {
 message MessageRequest {
     string message_text = 1;
     repeated string tags = 2; // List of tags
-    GPSCoordinates gps_coordinates = 3; // GPS coordinates (optional)
+    GpsCoordinates gps_coordinates = 3; // GPS coordinates (optional)
 }
 
 message MessageReply {
     string message_text = 1;
     repeated string tags = 2; // List of tags
-    GPSCoordinates gps_coordinates = 3; // GPS coordinates (if applicable)
+    GpsCoordinates gps_coordinates = 3; // GPS coordinates (if applicable)
 }
 
 message MessageTagFilter {
@@ -26,10 +26,10 @@ message MessageTagFilter {
 }
 
 message MessageLocationFilter {
-    GPSCoordinates location = 1; // Filter messages based on GPS coordinates
+    GpsCoordinates location = 1; // Filter messages based on GPS coordinates
 }
 
-message GPSCoordinates {
+message GpsCoordinates {
     double latitude = 1;
     double longitude = 2;
 }
