@@ -8,8 +8,7 @@ service CodeGenerator {
 }
 
 message GenerateFilesRequest {
-    // Additional fields for the request can be added here if needed.
-    // For example, a path to the configuration folder, or other parameters.
+    string tenant = 1;
 }
 
 message GenerateFilesResponse {
