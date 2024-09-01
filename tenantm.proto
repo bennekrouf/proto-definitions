@@ -5,6 +5,8 @@ package tenantm;
 
 service TenantManager {
     rpc ListTenants(ListTenantsRequest) returns (ListTenantsResponse);
+    rpc ListDatetimeFolders(ListDatetimeFoldersRequest) returns (ListDatetimeFoldersResponse);
+    rpc GetMostRecentDatetimeFolder (GetMostRecentDatetimeFolderRequest) returns (GetMostRecentDatetimeFolderResponse);
 }
 
 message ListTenantsRequest {}
@@ -12,3 +14,20 @@ message ListTenantsRequest {}
 message ListTenantsResponse {
     repeated string tenants = 1;
 }
+
+message ListDatetimeFoldersRequest {
+    string tenant = 1;
+}
+
+message ListDatetimeFoldersResponse {
+    repeated string datetime_folders = 1;
+}
+
+message GetMostRecentDatetimeFolderRequest {
+    string tenant = 1;
+}
+
+message GetMostRecentDatetimeFolderResponse {
+    string most_recent_folder = 1;
+}
+
