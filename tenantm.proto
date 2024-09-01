@@ -1,0 +1,14 @@
+
+syntax = "proto3";
+
+package tenantm;
+
+service TenantManager {
+    rpc ListTenants(ListTenantsRequest) returns (ListTenantsResponse);
+}
+
+message ListTenantsRequest {}
+
+message ListTenantsResponse {
+    repeated string tenants = 1;
+}
