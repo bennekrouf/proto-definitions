@@ -1,0 +1,22 @@
+
+syntax = "proto3";
+
+package transformer;
+
+// Define the gRPC service
+service TransformerService {
+  // RPC to trigger CSV processing
+  rpc ProcessCsvFiles (ProcessCsvFilesRequest) returns (ProcessCsvFilesResponse);
+}
+
+// Define the request message
+message ProcessCsvFilesRequest {
+  string input_directory = 1;  // Directory containing CSV files
+  string output_directory = 2; // Directory to save generated YAML files
+}
+
+// Define the response message
+message ProcessCsvFilesResponse {
+  string message = 1;  // Message indicating success or failure
+  bool success = 2;    // Whether the operation was successful
+}
