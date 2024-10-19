@@ -1,0 +1,7 @@
+
+# Ignore target directories
+target/
+
+# Ignore any other unnecessary files
+**/target
+**/.git

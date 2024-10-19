@@ -1,0 +1,22 @@
+
+services:
+  app:
+    build:
+      context: ..  # Build context is set to the parent directory
+      dockerfile: ./Dockerfile
+    container_name: veone
+    volumes:
+      - .:/app/proto-definitions
+      - ../messenger:/app/messenger  # Mount messenger
+      - ../minioc:/app/minioc  # Mount minioc
+    ports:
+      - "${MINIOC_PORT}:${MINIOC_PORT}"
+      - "${MESSENGER_PORT}:${MESSENGER_PORT}"
+    environment:
+      - MINIOC_PORT=${MINIOC_PORT}
+      - MESSENGER_PORT=${MESSENGER_PORT}
+      - QUERY_PORT=${QUERY_PORT}
+    user: root
+networks:
+  custom_network:
+    name: veone_network
